@@ -1,0 +1,54 @@
+Build REST API task for Course registration page.
+
+Course Listing Endpoint:
+URL: /api/courses
+Method: GET
+Response:
+Success: 200 OK with a JSON array containing details of available courses
+Failure: Appropriate error status code (e.g., 404 Not Found) with an error message in the response body
+
+Course Registration Endpoint:
+URL: /api/register-course
+Method: POST
+Request Body: JSON object containing course registration details (e.g., course ID, user ID)
+Response:
+Success: 201 Created with a JSON object confirming the registration
+Failure: Appropriate error status code (e.g., 400 Bad Request, 404 Not Found) with an error message in the response body
+
+User's Registered Courses Endpoint:
+URL: /api/user-courses/{userId}
+Method: GET
+Path Parameter: userId (ID of the user whose registered courses are to be fetched)
+Response:
+Success: 200 OK with a JSON array containing details of courses registered by the user
+Failure: Appropriate error status code (e.g., 404 Not Found) with an error message in the response body
+
+
+Course Details Endpoint:
+URL: /api/course/{courseId}
+Method: GET
+Path Parameter: courseId (ID of the course for which details are to be fetched)
+Response:
+Success: 200 OK with a JSON object containing details of the course
+Failure: Appropriate error status code (e.g., 404 Not Found) with an error message in the response body
+
+Error Handling:
+Handle various error cases such as invalid input data, course not found, user not found, etc.
+Return meaningful error messages in the response body to assist the client in troubleshooting.
+
+
+
+
+
+
+How to Run : --->
+
+npm init
+npm install express body-parser
+node app.js
+
+docker build -t course-registration-api .
+docker run -p 3000:3000 course-registration-api
+
+docker ps
+docker stop <container_id>
